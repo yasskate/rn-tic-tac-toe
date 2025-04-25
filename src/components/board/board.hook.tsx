@@ -9,10 +9,14 @@ function useBoard () {
   const [squares, setSquares] = useState(Array(9).fill(null))
   const [moves, setMoves] = useState<MovesStateProps>(MOVES_DEFAULT_STATE)
 
-  const resetGame =() => setMoves(MOVES_DEFAULT_STATE)
+  const resetGame =() => {setMoves(MOVES_DEFAULT_STATE)
+    setSquares(Array(9).fill(null))
+    setIsTurnForX(true)
+
+  }
 
   const handleSquareClick = (squareId: number) => {
-    console.log(`Square ${squareId} clicked`)
+    if (moves.x.length + moves.o.length === 9) return
 
     setSquares((prevState) => {
       const newSquares = [...prevState]
@@ -41,7 +45,6 @@ function useBoard () {
     console.log("Squares:", squares)
 
   return {
-    // squares,
     handleSquareClick,
     handleSquareValue,
     resetGame
