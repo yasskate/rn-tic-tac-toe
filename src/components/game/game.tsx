@@ -8,7 +8,6 @@ interface GameProps {
 function Game({ children, text }: GameProps) {
   return (
     <View style={styles.container}>
-      <Text>Game asdfasdf23234</Text>
       <Text>{text}</Text>
       {children}
     </View>

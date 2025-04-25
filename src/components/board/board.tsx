@@ -11,7 +11,7 @@ function Board() {
 
   return (
     <View style={styles.container}>
-      <Text>Tic Tac Toe</Text>
+      <Text>Tic Tac Toe - YB</Text>
       <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
         <Text>Reset</Text>
       </TouchableOpacity>
