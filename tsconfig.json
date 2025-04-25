@@ -4,8 +4,8 @@
     "strict": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@assets/*": ["./assets/*"],
+      "@assets/*": ["./assets/*"]
     },
-    "jsx": "react-jsx",
+    "jsx": "react-jsx"
   }
 }
