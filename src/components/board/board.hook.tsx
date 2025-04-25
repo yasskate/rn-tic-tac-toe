@@ -1,19 +1,17 @@
-import { useState  } from "react"
+import { useState } from "react"
 import { MOVES_DEFAULT_STATE } from "./board.constants"
 import { MovesStateProps } from "./board.types"
 
-
-
-function useBoard () {
+function useBoard() {
   const [gameOver, setGameOver] = useState(false)
   const [isTurnForX, setIsTurnForX] = useState(true)
   const [squares, setSquares] = useState(Array(9).fill(null))
   const [moves, setMoves] = useState<MovesStateProps>(MOVES_DEFAULT_STATE)
 
-  const resetGame =() => {setMoves(MOVES_DEFAULT_STATE)
+  const resetGame = () => {
+    setMoves(MOVES_DEFAULT_STATE)
     setSquares(Array(9).fill(null))
     setIsTurnForX(true)
-
   }
 
   const handleSquareClick = (squareId: number) => {
@@ -26,7 +24,9 @@ function useBoard () {
     })
 
     setMoves((prevMoves) => {
-      const currentMoves = isTurnForX ? [...prevMoves.x, squareId] : [...prevMoves.o, squareId]
+      const currentMoves = isTurnForX
+        ? [...prevMoves.x, squareId]
+        : [...prevMoves.o, squareId]
 
       return {
         ...prevMoves,
@@ -37,13 +37,12 @@ function useBoard () {
     setIsTurnForX((prev) => !prev)
   }
 
-  
-    const handleSquareValue = (squareId: number) => {
-      return squares[squareId - 1] || ""
-    }
+  const handleSquareValue = (squareId: number) => {
+    return squares[squareId - 1] || ""
+  }
 
-    console.log("Moves:", moves)
-    console.log("Squares:", squares)
+  console.log("Moves:", moves)
+  console.log("Squares:", squares)
 
   return {
     gameOver,

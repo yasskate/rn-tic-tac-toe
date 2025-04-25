@@ -3,7 +3,10 @@ import { SquareProps } from "./square.types"
 
 function Square({ id, value, onSquareClick }: SquareProps) {
   return (
-    <TouchableOpacity style={styles.container} onPress={() => onSquareClick(id)}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => onSquareClick(id)}
+    >
       <Text>{value}</Text>
     </TouchableOpacity>
   )

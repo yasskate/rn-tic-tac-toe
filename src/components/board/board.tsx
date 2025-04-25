@@ -5,14 +5,18 @@ import { Square } from "@/components/square"
 import { useBoard } from "./board.hook"
 import { BOARD } from "./board.constants"
 
-
 function Board() {
-  const { handleSquareClick, resetGame, handleSquareValue, gameOver } = useBoard()
+  const { handleSquareClick, resetGame, handleSquareValue, gameOver } =
+    useBoard()
 
   return (
     <View style={styles.container}>
       <Text>Tic Tac Toe - YB</Text>
-
+      {gameOver ? (
+        <Text>"The game is over!"</Text>
+      ) : (
+        <Text>May the best player win</Text>
+      )}
       <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
         <Text>Reset</Text>
       </TouchableOpacity>
@@ -24,7 +28,8 @@ function Board() {
                 key={square.id}
                 id={square.id}
                 value={handleSquareValue(square.id)}
-                onSquareClick={handleSquareClick}/>
+                onSquareClick={handleSquareClick}
+              />
             ))}
           </View>
         ))}
@@ -41,8 +46,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  board: {
-  },
+  board: {},
   row: {
     flexDirection: "row"
   },
@@ -50,6 +54,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#C3a43a",
     padding: 10,
     borderRadius: 5,
-    marginBottom: 20    
+    marginBottom: 20
   }
 })
