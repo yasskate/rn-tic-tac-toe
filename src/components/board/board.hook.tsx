@@ -5,6 +5,7 @@ import { MovesStateProps } from "./board.types"
 
 
 function useBoard () {
+  const [gameOver, setGameOver] = useState(false)
   const [isTurnForX, setIsTurnForX] = useState(true)
   const [squares, setSquares] = useState(Array(9).fill(null))
   const [moves, setMoves] = useState<MovesStateProps>(MOVES_DEFAULT_STATE)
@@ -45,6 +46,7 @@ function useBoard () {
     console.log("Squares:", squares)
 
   return {
+    gameOver,
     handleSquareClick,
     handleSquareValue,
     resetGame

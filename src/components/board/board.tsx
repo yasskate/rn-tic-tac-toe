@@ -1,5 +1,5 @@
-import { useState } from "react"
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
+
 import { Square } from "@/components/square"
 
 import { useBoard } from "./board.hook"
@@ -7,11 +7,12 @@ import { BOARD } from "./board.constants"
 
 
 function Board() {
-  const { handleSquareClick, resetGame, handleSquareValue } = useBoard()
+  const { handleSquareClick, resetGame, handleSquareValue, gameOver } = useBoard()
 
   return (
     <View style={styles.container}>
       <Text>Tic Tac Toe - YB</Text>
+
       <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
         <Text>Reset</Text>
       </TouchableOpacity>
