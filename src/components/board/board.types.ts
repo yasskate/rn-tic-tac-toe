@@ -5,4 +5,9 @@ interface Board {
   squares: Square[]
 }
 
-export type { Board }
+interface MovesStateProps {
+  x: number[]
+  o: number[]
+}
+
+export type { Board, MovesStateProps }

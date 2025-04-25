@@ -1,18 +1,20 @@
-import { View, StyleSheet, Text } from "react-native"
+import { useState } from "react"
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
 import { Square } from "@/components/square"
 
+import { useBoard } from "./board.hook"
 import { BOARD } from "./board.constants"
 
-interface BoardProps {
-  xIsNext: boolean
-  squares: string
-  onPlay: () => void
-}
 
 function Board() {
+  const { handleSquareClick, resetGame, handleSquareValue } = useBoard()
+
   return (
     <View style={styles.container}>
       <Text>Tic Tac Toe</Text>
+      <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
+        <Text>Reset</Text>
+      </TouchableOpacity>
       <View style={styles.board}>
         {BOARD.map(({ rowId, squares }) => (
           <View key={rowId} style={styles.row}>
@@ -20,9 +22,8 @@ function Board() {
               <Square
                 key={square.id}
                 id={square.id}
-                value={square.value}
-                onSquareClick={() => console.log(`Square ${square.id} clicked`)}
-              />
+                value={handleSquareValue(square.id)}
+                onSquareClick={handleSquareClick}/>
             ))}
           </View>
         ))}
@@ -43,5 +44,11 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row"
+  },
+  resetButton: {
+    backgroundColor: "#C3a43a",
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20    
   }
 })

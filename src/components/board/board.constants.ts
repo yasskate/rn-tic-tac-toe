@@ -1,4 +1,4 @@
-import { Board } from "./board.types"
+import { Board, MovesStateProps } from "./board.types"
 
 const BOARD: Board[] = [
   {
@@ -27,4 +27,9 @@ const BOARD: Board[] = [
   }
 ]
 
-export { BOARD }
+const MOVES_DEFAULT_STATE:MovesStateProps  = {
+    x: [],
+    o: []
+  }
+
+export { BOARD, MOVES_DEFAULT_STATE }
