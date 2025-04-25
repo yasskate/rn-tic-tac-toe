@@ -1,7 +1,7 @@
 interface SquareProps {
   id: number
   value: string
-  onSquareClick: () => void
+  onSquareClick: (squareId: number) => void
 }
 
 export type { SquareProps }
