@@ -1,11 +1,12 @@
 import { Text, StyleSheet, TouchableOpacity } from "react-native"
 import { SquareProps } from "./square.types"
 
-function Square({ id, value, onSquareClick }: SquareProps) {
+function Square({ id, value, onSquareClick, isSquareMarked }: SquareProps) {
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={() => onSquareClick(id)}
+      disabled={isSquareMarked}
     >
       <Text>{value}</Text>
     </TouchableOpacity>
