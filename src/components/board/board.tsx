@@ -17,15 +17,13 @@ function Board() {
 
   return (
     <View style={styles.container}>
-      <Text>Tic Tac Toe - YB</Text>
+      <Text>😺 Tic Tac Toe - YB</Text>
       {gameOver ? (
-        <Text>"The game is over!"</Text>
+        <Text>Game over 🎮</Text>
       ) : (
         <Text>May the best player win</Text>
       )}
-      <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
-        <Text>Reset</Text>
-      </TouchableOpacity>
+
       <View style={styles.board}>
         {BOARD.map(({ rowId, squares }) => (
           <View key={rowId} style={styles.row}>
@@ -41,8 +39,13 @@ function Board() {
           </View>
         ))}
       </View>
+
       {getWinner() && <Text>The winner is {getWinner()}</Text>}
       {gameOver && !getWinner() && <Text>This is a draw!</Text>}
+
+      <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
+        <Text>Reset</Text>
+      </TouchableOpacity>
     </View>
   )
 }
