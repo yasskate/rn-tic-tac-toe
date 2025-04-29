@@ -31,7 +31,7 @@ function Board() {
               <Square
                 key={square.id}
                 id={square.id}
-                isSquareMarked={isSquareMarked(square.id)}
+                isDisabled={isSquareMarked(square.id)}
                 value={handleSquareValue(square.id)}
                 onSquareClick={handleSquareClick}
               />
