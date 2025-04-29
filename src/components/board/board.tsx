@@ -1,18 +1,31 @@
-import { View, StyleSheet, Text } from "react-native"
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
+
 import { Square } from "@/components/square"
 
+import { useBoard } from "./board.hook"
 import { BOARD } from "./board.constants"
 
-interface BoardProps {
-  xIsNext: boolean
-  squares: string
-  onPlay: () => void
-}
-
 function Board() {
+  const {
+    handleSquareClick,
+    resetGame,
+    handleSquareValue,
+    gameOver,
+    getWinner,
+    isSquareMarked
+  } = useBoard()
+
   return (
     <View style={styles.container}>
-      <Text>Tic Tac Toe</Text>
+      <Text>Tic Tac Toe - YB</Text>
+      {gameOver ? (
+        <Text>"The game is over!"</Text>
+      ) : (
+        <Text>May the best player win</Text>
+      )}
+      <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
+        <Text>Reset</Text>
+      </TouchableOpacity>
       <View style={styles.board}>
         {BOARD.map(({ rowId, squares }) => (
           <View key={rowId} style={styles.row}>
@@ -20,13 +33,16 @@ function Board() {
               <Square
                 key={square.id}
                 id={square.id}
-                value={square.value}
-                onSquareClick={() => console.log(`Square ${square.id} clicked`)}
+                isSquareMarked={isSquareMarked(square.id)}
+                value={handleSquareValue(square.id)}
+                onSquareClick={handleSquareClick}
               />
             ))}
           </View>
         ))}
       </View>
+      {getWinner() && <Text>The winner is {getWinner()}</Text>}
+      {gameOver && !getWinner() && <Text>This is a draw!</Text>}
     </View>
   )
 }
@@ -39,9 +55,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  board: {
-  },
+  board: {},
   row: {
     flexDirection: "row"
+  },
+  resetButton: {
+    backgroundColor: "#C3a43a",
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20
   }
 })
