@@ -1,6 +1,5 @@
 import { Board, MovesStateProps } from "./board.types"
 
-
 const BOARD: Board[] = [
   {
     rowId: 1,
