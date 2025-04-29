@@ -1,8 +1,10 @@
 import { SquareProps as Square } from "@/components/square/square.types"
 
+type DefaultSquare = Omit<Square, "value" | "onSquareClick">
+
 interface Board {
   rowId: number
-  squares: Square[]
+  squares: DefaultSquare[]
 }
 
 interface MovesStateProps {
