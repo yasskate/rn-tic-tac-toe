@@ -6,8 +6,14 @@ import { useBoard } from "./board.hook"
 import { BOARD } from "./board.constants"
 
 function Board() {
-  const { handleSquareClick, resetGame, handleSquareValue, gameOver } =
-    useBoard()
+  const {
+    handleSquareClick,
+    resetGame,
+    handleSquareValue,
+    gameOver,
+    getWinner,
+    isSquareMarked
+  } = useBoard()
 
   return (
     <View style={styles.container}>
@@ -27,6 +33,7 @@ function Board() {
               <Square
                 key={square.id}
                 id={square.id}
+                isSquareMarked={isSquareMarked(square.id)}
                 value={handleSquareValue(square.id)}
                 onSquareClick={handleSquareClick}
               />
@@ -34,6 +41,8 @@ function Board() {
           </View>
         ))}
       </View>
+      {getWinner() && <Text>The winner is {getWinner()}</Text>}
+      {gameOver && !getWinner() && <Text>This is a draw!</Text>}
     </View>
   )
 }
