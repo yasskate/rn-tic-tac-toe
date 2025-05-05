@@ -1,6 +1,6 @@
 interface SquareProps {
   id: number
-  isSquareMarked: boolean | (() => boolean)
+  isDisabled: boolean
   onSquareClick: (squareId: number) => void
   value: string
 }
