@@ -1,11 +1,9 @@
 import { StyleSheet, TouchableOpacity } from "react-native"
-import Icon from "react-native-vector-icons/FontAwesome"
+// import Icon from "@expo/vector-icons"
+import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { SquareProps } from "./square.types"
 
 function Square({ id, value, onSquareClick, isDisabled }: SquareProps) {
-  const handleIconName = () =>
-    value === "X" ? "times" : value === "O" ? "circle-o" : ""
-
   const handleColorIcon = () =>
     value === "X" ? "#FFD600" : value === "O" ? "#00E676" : ""
 
@@ -15,7 +13,12 @@ function Square({ id, value, onSquareClick, isDisabled }: SquareProps) {
       onPress={() => onSquareClick(id)}
       disabled={isDisabled}
     >
-      <Icon name={handleIconName()} size={50} color={handleColorIcon()} />
+      {value === "X" && (
+        <FontAwesome name="times" size={50} color={handleColorIcon()} />
+      )}
+      {value === "O" && (
+        <FontAwesome name="circle-o" size={50} color={handleColorIcon()} />
+      )}
     </TouchableOpacity>
   )
 }

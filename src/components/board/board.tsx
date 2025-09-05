@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   Platform
 } from "react-native"
-import Icon from "react-native-vector-icons/FontAwesome"
+import FontAwesome from "@expo/vector-icons/FontAwesome"
 
 import { Square } from "@/components/square"
 
@@ -54,7 +54,7 @@ function Board() {
 
       <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
         <Text style={styles.resetText}>Restart</Text>
-        <Icon style={styles.refreshIcon} name="refresh" />
+        <FontAwesome style={styles.refreshIcon} name="refresh" />
       </TouchableOpacity>
     </View>
   )
