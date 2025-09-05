@@ -1,4 +1,10 @@
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Platform
+} from "react-native"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { Square } from "@/components/square"
@@ -18,16 +24,17 @@ function Board() {
 
   return (
     <View style={styles.container}>
-      {gameOver ? (
-        <Text>Game over 🎮</Text>
-      ) : (
-        <Text>May the best player win</Text>
-      )}
-
-      <>
-        {getWinner() && <Text>The winner is {getWinner()}</Text>}
-        {gameOver && !getWinner() && <Text>This is a draw!</Text>}
-      </>
+      <View style={styles.gameResult}>
+        <Text style={styles.textResult}>🎮 May the best player win.</Text>
+        <>
+          {getWinner() && (
+            <Text style={styles.textResult}>The winner is: {getWinner()}</Text>
+          )}
+          {gameOver && !getWinner() && (
+            <Text style={styles.textResult}>Drawed game!</Text>
+          )}
+        </>
+      </View>
 
       <View style={styles.board}>
         {BOARD.map(({ rowId, squares }) => (
@@ -59,12 +66,27 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#f3f3f3",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "space-around",
+    borderRadius: 16
+  },
+  gameResult: {
+    backgroundColor: "#3b5998",
+    width: "80%",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 16,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    marginVertical: 8
+  },
+  textResult: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#f3f3f3"
   },
   board: {
     borderRadius: 16,
-    backgroundColor: "#3b5998",
-    marginVertical: 20
+    backgroundColor: "#3b5998"
   },
   row: {
     flexDirection: "row"
@@ -74,9 +96,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 8,
     borderRadius: 16,
-    marginBottom: 20,
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    marginVertical: 16
   },
   resetText: {
     fontSize: 20,

@@ -1,4 +1,5 @@
 import { SafeAreaView, View, Text, StyleSheet } from "react-native"
+
 import { GameProps } from "./game.types"
 
 function Game({ children }: GameProps) {
