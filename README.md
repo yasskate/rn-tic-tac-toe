@@ -19,36 +19,36 @@ A simple Tic-Tac-Toe game built with React Native and Expo.
     ```
 3.  Start the development server:
     ```bash
-    bun start
+    bun run start
     ```
 4.  Scan the QR code with the Expo Go app on your device.
 
 ### Other Scripts
 
--   `bun run android`: Run on an Android device or emulator.
--   `bun run ios`: Run on an iOS device or simulator.
--   `bun run web`: Run in a web browser.
--   `bun run format`: Format the code with Prettier.
+- `bun run android`: Run on an Android device or emulator (requires Android Studio/SDK).
+- `bun run ios`: Run on an iOS device or simulator (requires macOS + Xcode).
+- `bun run web`: Run in a web browser.
+- `bun run format`: Format the code with Prettier.
 
-## Technologies Implemented
+## Tech Stack
 
--   **React:** A JavaScript library for building user interfaces.
--   **React Native:** A framework for building native apps with React.
--   **Expo:** A platform for making universal React applications.
--   **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
+- **React:** A JavaScript library for building user interfaces.
+- **React Native:** A framework for building native apps with React.
+- **Expo:** A platform for making universal React applications.
+- **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
 
 ## Important Versions
 
--   **Expo:** `^53.0.0`
--   **React:** `19.0.0`
--   **React Native:** `0.79.5`
--   **TypeScript:** `^5.3.3`
+- **Expo:** `^53.0.0`
+- **React:** `19.0.0`
+- **React Native:** `0.79.5`
+- **TypeScript:** `^5.3.3`
 
 ## Project Structure
 
 The project structure is as follows:
 
-```
+```text
 .
 ├── src
 │   └── components
@@ -67,11 +67,11 @@ The project structure is as follows:
 └── tsconfig.json
 ```
 
--   `src/components`: Contains the main React components of the game.
-    -   `board`: The game board component and its related logic.
-    -   `game`: The main game component that orchestrates the game.
-    -   `square`: A single square on the game board.
--   `App.tsx`: The main entry point of the application.
+- `src/components`: Contains the main React components of the game.
+  - `board`: The game board component and its related logic.
+  - `game`: The main game component that orchestrates the game.
+  - `square`: A single square on the game board.
+- `App.tsx`: The main entry point of the application.
 
 ## Code Formatting
 
