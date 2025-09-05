@@ -1,4 +1,5 @@
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 import { Square } from "@/components/square"
 
@@ -17,12 +18,16 @@ function Board() {
 
   return (
     <View style={styles.container}>
-      <Text>😺 Tic Tac Toe - YB</Text>
       {gameOver ? (
         <Text>Game over 🎮</Text>
       ) : (
         <Text>May the best player win</Text>
       )}
+
+      <>
+        {getWinner() && <Text>The winner is {getWinner()}</Text>}
+        {gameOver && !getWinner() && <Text>This is a draw!</Text>}
+      </>
 
       <View style={styles.board}>
         {BOARD.map(({ rowId, squares }) => (
@@ -40,13 +45,9 @@ function Board() {
         ))}
       </View>
 
-      <>
-        {getWinner() && <Text>The winner is {getWinner()}</Text>}
-        {gameOver && !getWinner() && <Text>This is a draw!</Text>}
-      </>
-
       <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
-        <Text>Reset</Text>
+        <Text style={styles.resetText}>Restart</Text>
+        <Icon style={styles.refreshIcon} name="refresh" />
       </TouchableOpacity>
     </View>
   )
@@ -60,15 +61,29 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  board: {},
+  board: {
+    borderRadius: 16,
+    backgroundColor: "#3b5998",
+    marginVertical: 20
+  },
   row: {
     flexDirection: "row"
   },
   resetButton: {
     backgroundColor: "#C3a43a",
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 20
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    borderRadius: 16,
+    marginBottom: 20,
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  resetText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  refreshIcon: {
+    fontSize: 20,
+    marginLeft: 10
   }
 })
-
