@@ -40,8 +40,10 @@ function Board() {
         ))}
       </View>
 
-      {getWinner() && <Text>The winner is {getWinner()}</Text>}
-      {gameOver && !getWinner() && <Text>This is a draw!</Text>}
+      <>
+        {getWinner() && <Text>The winner is {getWinner()}</Text>}
+        {gameOver && !getWinner() && <Text>This is a draw!</Text>}
+      </>
 
       <TouchableOpacity style={styles.resetButton} onPress={resetGame}>
         <Text>Reset</Text>
@@ -69,3 +71,4 @@ const styles = StyleSheet.create({
     marginBottom: 20
   }
 })
+
