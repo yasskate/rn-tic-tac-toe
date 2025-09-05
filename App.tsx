@@ -1,12 +1,13 @@
 import { StatusBar } from "expo-status-bar"
-import { SafeAreaView, StyleSheet, Text, View } from "react-native"
+import { StyleSheet } from "react-native"
+import { SafeAreaProvider } from "react-native-safe-area-context"
 import { LinearGradient } from "expo-linear-gradient"
 import { Game } from "@/components/game"
 import { Board } from "@/components/board"
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaProvider style={styles.container}>
       <LinearGradient
         colors={["#36aa53", "#3b5998", "#192f6a"]}
         start={{ x: 0, y: 0 }}
@@ -18,7 +19,7 @@ export default function App() {
           <Board />
         </Game>
       </LinearGradient>
-    </SafeAreaView>
+    </SafeAreaProvider>
   )
 }
 
