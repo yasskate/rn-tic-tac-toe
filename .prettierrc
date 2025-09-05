@@ -6,6 +6,5 @@
   "tabWidth": 2,
   "trailingComma": "none",
   "useTabs": false,
-  "endOfLine": "crlf",
   "jsxSingleQuote": false
 }
