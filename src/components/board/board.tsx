@@ -31,7 +31,7 @@ function Board() {
             <Text style={styles.textResult}>The winner is: {getWinner()}</Text>
           )}
           {gameOver && !getWinner() && (
-            <Text style={styles.textResult}>Drawed game!</Text>
+            <Text style={styles.textResult}>It's a draw!</Text>
           )}
         </>
       </View>

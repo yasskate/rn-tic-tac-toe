@@ -1,5 +1,7 @@
+import type { ReactNode } from "react"
+
 interface GameProps {
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 export type { GameProps }
